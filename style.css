@@ -1,0 +1,1623 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Optimized font loading for mobile */
+@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/PPNeueMontreal-Bold.woff2') format('woff2');
+  font-display: swap; /* Improves loading performance */
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'MyFont1';
+  src: url('fonts/PPNeueMontreal-Book.woff2') format('woff2');
+  font-display: swap;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'MyFont2';
+  src: url('fonts/PPNeueMontreal-SemiBold.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'MyFont3';
+  src: url('fonts/PPNeueMontreal-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 600;
+}
+
+
+
+html, body{
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: white;
+    /* Mobile optimization */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
+}
+
+#top{
+
+    position: relative;
+    display: flex;
+   width: 480.82px;
+    height: 92px;
+    
+    margin-top: 100px;
+    margin-left: 10%;
+    text-transform: uppercase;
+     transform: scaleY(1.5);
+     
+}
+
+#top h1{
+    padding-top: 10px;
+    padding-left: 15px;
+    text-align: center;
+    font-size: 60.802px;
+    white-space: nowrap;
+    font-family: 'MyFont' ;
+     font-size: clamp(28px, 6vw, 60px);
+
+  /* optional for smooth scaling appearance */
+  line-height: 1.2;
+}
+@media (max-width: 600px) {
+  #top {
+    margin-top: 60px;
+  }
+}
+
+
+#bottom{
+
+    position: relative;
+    display: flex;
+   width: 580.82px;
+    height: 92px;
+    
+    margin-top: 25%;
+    margin-bottom: 0px;
+    margin-left: 45%;
+    text-transform: uppercase;
+
+}
+
+#bottom h1{
+    padding-top: 10px;
+    padding-left: 24px;
+    text-align: center;
+    font-size: 60.802px;
+    white-space: nowrap;
+    font-family: 'MyFont' ;
+      font-size: clamp(28px, 6vw, 60px);
+       transform: scaleY(1.5);
+    
+}
+
+
+
+#left{
+    position: relative;
+    display: flex;
+   width: 270.82px;
+    height: 92px;
+   z-index: 1;
+    margin-top: -25%;
+    margin-left: 1%;
+    text-transform: uppercase;
+    
+}
+#left h2{
+    padding-top: 20px;
+    padding-left: 15px;
+    text-align: center;
+    font-size: 15.802px;
+    white-space: nowrap;
+    font-family: 'MyFont1' ;
+    
+}
+
+#right{
+    position: relative;
+    display: flex;
+   width: 270.82px;
+    height: 92px;
+   z-index: 2;
+    margin-top: -5%;
+    margin-left: 76%;
+    text-transform: uppercase;
+    
+}
+
+#right h2{
+    padding-top: 20px;
+    padding-left: 15px;
+    text-align: center;
+    font-size: 15.802px;
+    white-space: nowrap;
+    font-family: 'MyFont1' ;
+    
+}
+
+.college {
+  color:black;   
+  font-weight: bolder;     /* purple text */
+  
+   
+}
+
+/* Optimized Transparent Navbar for Mobile */
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: transparent;
+  color: white;
+  z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  /* Mobile touch optimization */
+  -webkit-tap-highlight-color: transparent;
+  /* Prevent navbar from causing layout shifts */
+  will-change: background-color, box-shadow;
+}
+
+/* Logo */
+#navbar .logo {
+  font-family: 'MyFont1', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+/* Optimized Navigation Links for Mobile */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 70px;
+  /* Mobile optimization */
+  touch-action: manipulation;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+  transition: color 0.3s;
+  /* Mobile touch optimization */
+  -webkit-tap-highlight-color: transparent;
+  /* Prevent text selection on touch */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Improve touch target size */
+  padding: 8px 12px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  color: grey;
+  outline: none;
+}
+
+/* Optimized Hamburger Menu for Mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  /* Mobile touch optimization */
+  -webkit-tap-highlight-color: transparent;
+  padding: 8px;
+  /* Ensure minimum touch target size */
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar {
+  height: 3px;
+  width: 25px;
+  background-color: black;
+  margin: 4px 0;
+  transition: 0.3s;
+  /* Smooth animation */
+  transform-origin: center;
+}
+
+/* ✅ Scroll effect: navbar gets background on scroll */
+.scrolled {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Optimized Mobile Responsive Design */
+@media (max-width: 768px) {
+  /* Mobile navbar adjustments */
+  #navbar {
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    position: absolute;
+    right: 0;
+    top: 70px;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    transition: height 0.3s ease-in-out;
+    /* Mobile optimization */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-links.active {
+    height: 280px;
+    /* Smooth mobile animation */
+    transform: translateZ(0);
+  }
+
+  .nav-links li a {
+    color: white;
+    font-size: 4px;
+    padding: 12px 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Mobile logo adjustment */
+  #navbar .logo {
+    font-size: 18px;
+  }
+}
+
+/* Optimized Video Section for Mobile */
+#center {
+  width: 460px;
+  height: 271.25px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 31%;
+  margin-top: -190px;
+  /* Mobile optimization */
+  will-change: transform;
+}
+
+/* Optimized video for mobile performance */
+#center video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  /* Mobile video optimization */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  /* Prevent video from causing layout shifts */
+  will-change: transform;
+}
+/* Mobile video optimizations */
+@media (max-width: 768px) {
+  #center {
+    width: 90%;
+    margin: 30px auto;
+    /* Mobile performance */
+    transform: translateZ(0);
+  }
+}
+
+@media (max-width: 480px) {
+  #center {
+    width: 95%;
+    margin: 20px auto;
+    border-radius: 12px;
+    /* Reduce video quality on very small screens for performance */
+    height: 200px;
+  }
+  
+  #center video {
+    /* Optimize video rendering on small screens */
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+}
+
+#section1{
+    width: 525px;
+    height: 100vh;
+    margin-left: 30%;
+    margin-top: 30%;
+    /* Mobile optimization */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+#section1 h1 {
+  font-family: 'MyFont2';
+  font-size: 43px;
+  line-height: 1.2;
+  white-space: nowrap;
+  margin-right: 10%;
+  margin-bottom: 20px;
+  margin-left: 5%;
+  font-weight: 100;
+  transform: scaleY(1.5) translateX(-40%);
+  /* Mobile text optimization */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  will-change: transform;
+}
+
+#section1 h2{
+    font-family: 'MyFont2' ;
+    font-size: 63px;
+    line-height: 1.2;
+    white-space: nowrap;
+    letter-spacing: 4px;
+    margin-left:5%;
+
+    padding-right: 20%;
+     transform: scaleY(1.5);
+     margin-bottom: 8px;
+    
+}
+#forwardText{
+     font-family: 'MyFont2' ;
+    font-size: 33px;
+    line-height: 1.2;
+    white-space: nowrap;
+    padding-left: 25%;
+    margin-left:20%;
+     transform: scaleY(1.5);
+     
+}
+
+#section1 h3{
+    font-family: 'MyFont2' ;
+    font-size: 10px;
+    line-height: 1.2;
+    white-space: nowrap;
+    letter-spacing: 4px;
+    margin-left:35%;
+    margin-top: -320px;
+    padding-right: 20%;
+     transform: scaleY(1.5);
+     
+    
+}
+
+#culture{
+    position: relative;
+    width: 200px;
+    height: 70px;
+    
+    margin-top: 190px;
+    margin-left: -65%;
+
+}
+/* 🌍 Fully Adaptive Responsive Design */
+
+
+#images{
+  position: absolute;
+  width: 150px;
+  height: 75px;
+ 
+  margin-top: 20%;
+  z-index: 23;
+  margin-left: 10%;
+  background-image: url('https://www.weareinertia.com/_vercel/image?url=%2Fimg%2Fborder-s.svg&w=320&q=100');
+  background-repeat: no-repeat;
+  
+  
+}
+
+#images1{
+  position: absolute;
+  width: 40px;
+  height: 75px;
+ 
+  margin-top: 10%;
+  z-index: 23;
+  margin-left: 19%;
+  background-image: url(/images/arrow.svg);
+  background-repeat: no-repeat;
+  transform: rotate(-45deg);
+  
+}
+
+
+#driven{
+  width: 680px;
+  height: 50px;
+  
+  margin-top: 45%;
+  margin-left: -15%;
+}
+
+#driven h1{
+  position: relative;
+ font-family: 'MyFont1';
+ margin-left: 40%;
+ font-size: 26px;
+ font-weight: 500;
+}
+
+
+
+#explore{
+  width: 100%;
+  height: 130vh;
+  
+}
+
+ #explore1{
+  width: 290px;
+  height: 55px;
+  font-family: 'MyFont1';
+  margin-left: 3%;
+  margin-bottom: 25px;
+  font-size: 20px;
+  white-space: nowrap;
+  transform: scaleY(1.5);
+  word-spacing: 20px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
+  grid-template-rows: repeat(4, 1fr); 
+  width: 90vw;
+  height: 200px;
+  
+   gap: 0;
+  margin-left: 3%;
+    border-collapse: collapse;
+}
+
+.box {
+  border: 1px solid #c7c6ca;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+   margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  width: 182px;
+  height: 192px;
+  color: black;
+  position: relative;
+  background-color: white;
+  
+  
+ 
+}
+
+
+
+/* Logo always visible */
+.box .logo {
+  z-index: 1;
+  opacity: 1;
+}
+
+/* Hover image hidden initially */
+.box .hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+/* On hover — show the hover image */
+.box:hover .hover-img {
+  opacity: 1;
+}
+
+
+#para{
+  width: 100%;
+  height: 390vh;
+  background-color: white;
+  color: black;
+}
+
+
+#we{
+   font-size: 63px;
+   margin-left: 20%;
+   padding-top: 40px;
+}
+
+
+#create{
+   font-size: 63px;
+   margin-left: 40%;
+}
+
+#rule{
+   font-size: 63px;
+   margin-left: 25%;
+}
+
+#coolab{
+   font-size: 63px;
+   margin-left: 25%;
+}
+
+#per{
+   font-size: 63px;
+   margin-left: 25%;
+}
+
+#prob{
+   font-size: 63px;
+   margin-left: 25%;
+}
+
+#prob2{
+   font-size: 63px;
+   margin-left: 25%;
+}
+
+#prob3{
+   font-size: 63px;
+   margin-left: 25%;
+}
+
+#prob4{
+   font-size: 63px;
+   margin-left: 25%;
+}
+
+#story{
+  width: 280px;
+  height: 300px;
+ 
+  margin-left: 3%;
+  margin-top: 8%;
+  overflow: hidden;
+}
+
+#story video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+#story1{
+  width: 280px;
+  height: 300px;
+ 
+  margin-left: 69%;
+  margin-top: -24%;
+  font-family: "MyFont3";
+  color: white;
+  padding-left: 10px;
+}
+
+#story2{
+  width: 280px;
+  height: 270px;
+  
+  margin-left: 40%;
+  margin-top: -24%;
+   font-family: "MyFont3";
+  color: white;
+  padding-left: 10px;
+}
+
+#team{
+  width: 200px;
+  height: 42px;
+ 
+  margin-top: 180px;
+  margin-left: 3%;
+}
+
+#team h1{
+   font-size: 25px;
+   padding-top: 2px;
+
+}
+
+#based{
+  width: 480px;
+  height: 82px;
+ 
+  margin-left: 40%;
+  margin-top: -55px;
+  margin-bottom: 20px;
+}
+
+#based h1{
+  font-size: 35px;
+  font-family: "MyFont1";
+}
+
+
+#based1{
+  width: 480px;
+  height: 102px;
+  
+  margin-left: 40%;
+  margin-top: -5px;
+}
+
+#based1 h1{
+  font-size: 20px;
+  font-family: "MyFont3";
+  font-weight: 100;
+}
+
+
+#president{
+  width: 390px;
+  height: 420px;
+  background-color: blue;
+  margin-left: 3%;
+  margin-top: 180px;
+}
+
+#vice{
+  width:210px;
+  height: 220px;
+  background-color: blue;
+  margin-left:35%;
+  margin-top: -420px;
+}
+
+#tech{
+  width: 340px;
+  height: 420px;
+  background-color: blue;
+  margin-left: 53%;
+  margin-top: 2px;
+}
+
+#treas{
+   width:210px;
+  height: 240px;
+  background-color: blue;
+  margin-left:81%;
+  margin-top: -420px;
+  
+}
+
+
+#community{
+   width: 390px;
+  height: 420px;
+  background-color: blue;
+  margin-left: 3%;
+  margin-top: 180px;
+  margin-bottom: 200px;
+}
+
+#advisor{
+  width:210px;
+  height: 220px;
+  background-color: blue;
+  margin-left:35%;
+  margin-top: -620px;
+}
+
+#sec{
+   width:210px;
+  height: 240px;
+  background-color: blue;
+  margin-left:81%;
+  margin-top: -220px;
+}
+
+
+#events{
+  width: 380px;
+  height: 72px;
+  
+  margin-left: 63%;
+  margin-top: 70px;
+}
+
+#events h1{
+  font-size: 53px;
+  font-family: "MyFont1";
+  padding-left: 25px;
+  padding-top: 5px;
+}
+
+
+#events1{
+  width: 380px;
+  height: 118px;
+ 
+  margin-left: 63%;
+  margin-top: 20px;
+}
+
+#events1 h1{
+   font-size: 18px;
+  font-family: "MyFont3";
+  padding-left: 24px;
+  padding-top: 5px;
+}
+
+#all{
+ width: 100px;
+ height: 30px;
+
+ margin-left: 3%;
+ margin-top: -120px;
+ margin-bottom: 5px;
+}
+
+#all h1{
+  font-size: 17px;
+  font-family: "MyFont3";
+
+}
+
+#new{
+ width: 100px;
+ height: 30px;
+
+  margin-left: 3%;
+   margin-bottom: 5px;
+}
+
+#new h1{
+   font-size: 17px;
+   font-family: "MyFont3";
+}
+
+#upcoming{
+ width: 140px;
+ height: 30px;
+
+  margin-left: 3%;
+   margin-bottom: 5px;
+}
+
+#upcoming h1{
+   font-size: 17px;
+   font-family: "MyFont3";
+}
+
+#hack80n{
+  width: 580px;
+  height: 380px;
+  background-color: blue;
+  margin-left: 3%;
+  margin-top: 60px;
+   background-image: url(/images/hack80n.jpg);
+  background-size: cover;
+
+  clip-path: polygon(0% 15%, 0 0, 15% 0%, 85% 0%, 100% 0, 100% 15%, 100% 77%, 85% 77%, 85% 100%, 15% 100%, 0 100%, 0% 85%);
+}
+
+
+
+#images2{
+  height: 30px;
+  width: 40px;
+  margin-left: 44%;
+  margin-top: -70px;
+
+
+}
+
+#img2{
+  height: 30px;
+  width: 20px;
+  margin-left: 45%;
+  margin-top: -20px;
+  transform: rotate(-45deg);
+}
+
+
+
+
+#devspark{
+  width: 580px;
+  height: 380px;
+  background-color: blue;
+  margin-left: 50%;
+  margin-top: -270px;
+  background-image: url(/images/devspark.jpg);
+  background-size: cover;
+  
+}
+
+#devfest{
+   width: 580px;
+  height: 380px;
+  background-color: blue;
+  margin-left: 3%;
+  margin-top: 60px;
+   background-image: url(/images/explore.jpg);
+  background-size: cover;
+  padding-top: 20px;
+  
+}
+
+#hack80n1{
+  width: 420px;
+  height: 35px;
+ 
+  margin-left: 3%;
+  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 70px;
+  color: black;
+  font-size: 8px;
+  font-family: "MyFont1";
+  
+ 
+}
+
+
+
+#devspark1{
+  width: 420px;
+  height: 35px;
+  
+  margin-left: 50%;
+  margin-top: 8px;
+  font-size: 8px;
+  font-family: "MyFont1";
+  
+
+}
+
+
+#devfest1{
+   width: 420px;
+  height: 35px;
+ 
+  margin-left: 3%;
+  margin-top: 8px;
+   font-family: "MyFont1";
+  font-size: 8px;
+
+
+}
+#devfest2{
+  width: 220px;
+  height: 35px;
+ 
+  margin-left: 31.5%;
+  margin-top: -460px;
+  font-size: 8px;
+  font-family: "MyFont1";
+  padding-left: 138px;
+
+
+}
+
+/* 🎯 MOBILE VIEW (phones & small screens) */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* prevents sideways scrolling */
+  }
+
+  /* Example: make images and sections adjust */
+  #hack80n img {
+    width: 10%;
+    height: 20%;
+    padding-right: 0;
+  }
+
+  
+
+  /* Example: reduce text size for smaller screens */
+  h1, h2 {
+    font-size: 1rem;
+  }
+}
+
+/* 📱 MOBILE VIEW (Up to 768px) */
+@media (max-width: 768px) {
+  /* GENERAL RESET */
+  body {
+    overflow-x: hidden;
+    font-size: 14px;
+  }
+
+  /* 🧭 Navbar */
+  #navbar {
+    padding: 5px 20px;
+    flex-wrap: wrap;
+  }
+
+  #navbar .logo {
+    font-size: 19px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    color: black;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+  }
+
+  .nav-links.active {
+    height: 440px;
+  }
+
+  .nav-links li a {
+    color: white;
+    font-size: 14px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  /* 🏷️ Hero Text Sections */
+  #top, #bottom, #left, #right {
+    margin:70px 20px;
+    text-align: center;
+    width: 90%;
+    height: auto;
+    transform: scaleY(1);
+  }
+
+  #top h1{
+    
+    white-space: normal;
+    
+  }
+
+  #bottom h1{
+   font-size: 35px;
+   margin-left: 10%;
+   margin-top: 80px;
+  }
+
+  #left h2{
+    font-size: 14px;
+    margin-left: 13%;
+  }
+  #right h2{
+   font-size: 14px;
+    margin-left: 10%;
+  }
+
+  /* 🎥 Center Video */
+  #center {
+    width: 95%;
+    height: 200px;
+    margin: -10px auto;
+  }
+
+  /* 📄 Section 1 */
+  #section1 {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+    height: auto;
+    margin-top: 80px;
+  }
+
+  #section1 h1 {
+    font-size: 22px;
+    transform: none;
+    margin: 10px 0;
+  }
+
+  #section1 h2 {
+    font-size: 28px;
+    transform: none;
+    margin: 5px 0;
+    margin-left: 10%;
+  }
+
+  #forwardText {
+    font-size: 38px;
+    margin: 0 auto;
+    padding: 20px;
+    transform: none;
+   
+  }
+
+  #section1 h3 {
+    font-size: 10px;
+    margin-top: 10px;
+    margin-left: 20%;
+    transform: none;
+  }
+
+  #driven{
+    margin-top: -50px;
+    margin-left: -40%;
+    margin-bottom: 190px;
+  }
+ #culture{
+  margin-left: 22%;
+ }
+
+  /* 🧱 Explore Grid */
+  .main {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+    gap: 10px;
+  }
+
+  .box {
+    width: 100%;
+    height: 150px;
+  }
+
+  /* 🧩 Event Section */
+  #explore {
+    height: auto;
+  }
+
+  #hack80n,
+  #devspark,
+  #devfest {
+    width: 90%;
+    height: 250px;
+    margin: 20px auto;
+    background-size: cover;
+    background-position: center;
+  }
+
+  #hack80n1,
+  #devspark1,
+  #devfest1,
+  #devfest2 {
+    font-size: 10px;
+    margin-left: 5%;
+    width: 90%;
+    text-align: center;
+  }
+
+  /* 🧑‍🤝‍🧑 Team Section */
+  #team, #based, #based1 {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  #team h1 {
+    font-size: 20px;
+  }
+
+  #based h1 {
+    font-size: 25px;
+  }
+
+  #based1 h1 {
+    font-size: 14px;
+  }
+
+  /* Team cards - stack vertically */
+  #president, #vice, #tech, #treas, #community, #advisor, #sec {
+    width: 80%;
+    height: 200px;
+    margin: 15px auto;
+  }
+
+  /* 🧠 Typography Scaling */
+  h1 {
+    font-size: clamp(20px, 5vw, 32px);
+  }
+
+  h2 {
+    font-size: clamp(16px, 4vw, 24px);
+  }
+
+  /* 🧾 Paragraph & Story */
+  #para {
+    height: auto;
+  }
+
+  #we, #create, #rule, #coolab, #per, #prob, #prob2, #prob3, #prob4 {
+    font-size: 28px;
+    margin-left: 5%;
+  }
+
+  #story, #story1, #story2 {
+    width: 90%;
+    height: 250px;
+    margin: 20px auto;
+  }
+
+  #story video {
+    height: 100%;
+  }
+
+  /* ⚙️ Misc Layout Adjustments */
+  #events, #events1, #all, #new, #upcoming {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  #events h1 {
+    font-size: 48px;
+  }
+
+  #events1 h1,
+  #all h1,
+  #new h1,
+  #upcoming h1 {
+    font-size: 12px;
+    
+  }
+
+#devfest1 h1{
+  font-size: 15px;
+}
+
+
+
+#hack80n1 h1{
+  font-size: 15px;
+}
+
+#devspark1 h1{
+  font-size: 13px;
+}
+
+#devfest2 h1{
+  font-size: 13px;
+  margin-top: 135px;
+  margin-left: 60%;
+}
+
+  /* Reduce padding on small elements */
+  #images,
+  #images1,
+  #images2,
+  #img2 {
+    margin-top: 20px;
+    display: none; /* hide decorative arrows/borders on mobile */
+  }
+}
+
+/* 📱 EXTRA SMALL SCREENS (up to 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  #navbar .logo {
+    font-size: 16px;
+  }
+
+  .nav-links li a {
+    font-size: 12px;
+  }
+
+  #center {
+    height: 180px;
+  }
+
+  .box {
+    height: 120px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
+/* 💻 Medium Devices - Tablets (Portrait & Small Laptops) */
+@media (max-width: 1024px) {
+  body {
+    font-size: 15px;
+    overflow-x: hidden;
+  }
+
+  #navbar {
+    padding: 10px 40px;
+  }
+
+  #navbar .logo {
+    font-size: 22px;
+  }
+
+  .nav-links li a {
+    font-size: 15px;
+  }
+
+  #center {
+    width: 80%;
+    height: 280px;
+  }
+
+  #section1 h1 {
+    font-size: 28px;
+  }
+
+  #section1 h2 {
+    font-size: 34px;
+  }
+
+  #forwardText {
+    font-size: 40px;
+  }
+
+  .main {
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #hack80n,
+  #devspark,
+  #devfest {
+    width: 85%;
+    height: 320px;
+  }
+
+  #hack80n1 h1,
+  #devspark1 h1,
+  #devfest1 h1 {
+    font-size: 16px;
+  }
+
+  #devfest2 h1 {
+    font-size: 15px;
+    margin-left: 55%;
+  }
+
+  #team h1 {
+    font-size: 28px;
+  }
+
+  #based h1 {
+    font-size: 30px;
+  }
+
+  #based1 h1 {
+    font-size: 18px;
+  }
+
+  #president, #vice, #tech, #treas, #community, #advisor, #sec {
+    width: 45%;
+    margin: 20px auto;
+  }
+}
+
+/* 📱 Small Devices (Phones Landscape or Large Mobiles) */
+@media (max-width: 600px) {
+  body {
+    font-size: 13px;
+  }
+
+  #navbar {
+    padding: 5px 15px;
+  }
+
+  #navbar .logo {
+    font-size: 18px;
+  }
+
+  #center {
+    width: 95%;
+    height: 220px;
+  }
+
+  #section1 {
+    margin-top: 60px;
+  }
+
+  #section1 h2 {
+    font-size: 26px;
+  }
+
+  #forwardText {
+    font-size: 32px;
+  }
+
+  #hack80n,
+  #devspark,
+  #devfest {
+    width: 90%;
+    height: 230px;
+  }
+
+  #hack80n1 h1,
+  #devspark1 h1,
+  #devfest1 h1 {
+    font-size: 12px;
+  }
+
+  #devfest2 h1 {
+    font-size: 12px;
+    margin-top: 120px;
+    margin-left: 55%;
+  }
+
+  #team h1 {
+    font-size: 18px;
+  }
+
+  #based h1 {
+    font-size: 22px;
+  }
+
+  #based1 h1 {
+    font-size: 13px;
+  }
+}
+
+/* 📲 Ultra Small Devices (Old iPhones, very small screens) */
+@media (max-width: 400px) {
+  body {
+    font-size: 11px;
+  }
+
+  #navbar .logo {
+    font-size: 15px;
+  }
+
+  #section1 h2 {
+    font-size: 22px;
+  }
+
+  #forwardText {
+    font-size: 28px;
+  }
+
+  #hack80n,
+  #devspark,
+  #devfest {
+    height: 200px;
+  }
+
+  #hack80n1 h1,
+  #devspark1 h1,
+  #devfest1 h1 {
+    font-size: 10px;
+  }
+
+  #devfest2 h1 {
+    font-size: 10px;
+    margin-top: 110px;
+    margin-left: 50%;
+  }
+}
+/* 📘 iPad Mini (8.3-inch, 2021) - Portrait & Landscape */
+@media only screen 
+  and (min-device-width: 744px) 
+  and (max-device-width: 1133px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  
+  body {
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  #navbar {
+    padding: 12px 50px;
+  }
+
+  #navbar .logo {
+    font-size: 24px;
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+  }
+
+  #center {
+    width: 85%;
+    height: 300px;
+  }
+
+  #section1 h1 {
+    font-size: 30px;
+  }
+
+  #section1 h2 {
+    font-size: 38px;
+  }
+
+  #forwardText {
+    font-size: 42px;
+  }
+
+  #hack80n,
+  #devspark,
+  #devfest {
+    width: 80%;
+    height: 320px;
+  }
+
+  #hack80n1 h1,
+  #devspark1 h1,
+  #devfest1 h1 {
+    font-size: 15px;
+  }
+
+  #team h1 {
+    font-size: 28px;
+  }
+
+  #based h1 {
+    font-size: 30px;
+  }
+
+  #based1 h1 {
+    font-size: 18px;
+  }
+
+  #president, #vice, #tech, #treas, #community, #advisor, #sec {
+    width: 42%;
+    margin: 20px auto;
+  }
+}
+
+/* 💼 iPad Pro (11" & 12.9") - Portrait & Landscape */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  
+  body {
+    font-size: 17px;
+    overflow-x: hidden;
+  }
+
+  #navbar {
+    padding: 15px 60px;
+  }
+
+  #navbar .logo {
+    font-size: 26px;
+  }
+
+  .nav-links li a {
+    font-size: 17px;
+  }
+
+  #center {
+    width: 80%;
+    height: 320px;
+  }
+
+  #section1 {
+    margin-top: 80px;
+  }
+
+  #section1 h2 {
+    font-size: 42px;
+  }
+
+  #forwardText {
+    font-size: 48px;
+  }
+
+  #hack80n,
+  #devspark,
+  #devfest {
+    width: 75%;
+    height: 340px;
+  }
+
+  #hack80n1 h1,
+  #devspark1 h1,
+  #devfest1 h1 {
+    font-size: 16px;
+  }
+
+  #devfest2 h1 {
+    font-size: 15px;
+    margin-left: 55%;
+  }
+
+  #team h1 {
+    font-size: 30px;
+  }
+
+  #based h1 {
+    font-size: 32px;
+  }
+
+  #based1 h1 {
+    font-size: 19px;
+  }
+
+  #president, #vice, #tech, #treas, #community, #advisor, #sec {
+    width: 40%;
+    margin: 25px auto;
+  }
+}
+
+
+
+.container{
+    width: 100%;
+ 
+    padding: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 240px;
+}
+
+.card1, .card2, .card3, .card4, .card5{
+    position: sticky;
+    top: 15vh;
+    width: 100%;
+    padding: 7rem 1rem;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    border-radius: 25px;
+}
+
+.card1 img, .card2 img, .card3 img, .card4 img, .card5 img{
+    width: 13rem;
+    border-radius: 10px;
+}
+
+.card1 h1, .card2 h1, .card3 h1, .card4 h1, .card5 h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+.card1 p, .card2 p, .card3 p, .card4 p, .card5 p{
+    color: white;
+    padding: 0 1rem;
+}
+
